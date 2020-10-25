@@ -9,3 +9,15 @@
 * В ответ получить задание: зашифрованное сообщение
 * Расшифровать преподавателя
 * Ответ направить на почту
+
+## Перед началом работы:
+
+1. Загляните в `files/description.md`
+2. Заполните все файлы  
+2. Установите `PyCryptodome`  
+для этого выполините команду `pip3 install pycryptodome`  
+Ссылка на документацию: _https://pycryptodome.readthedocs.io/en/latest/src/introduction.html_  
+3. Выполните `python3 main.py`  
+
+Пример работы в терминале  
+![Пример на скриншоте example.png](example.png)
