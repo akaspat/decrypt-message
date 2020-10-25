@@ -1,8 +1,9 @@
 import base64
 from Crypto.PublicKey import RSA
 from Crypto.Hash import SHA
-from Crypto.Cipher import PKCS1_v1_5
+from Crypto.Cipher import PKCS1_v1_5, AES
 from Crypto import Random
+from Crypto.Util.Padding import unpad
 
 
 def decrypt_aes_key():
@@ -43,9 +44,26 @@ def decrypt_aes_iv():
     return result_aes_iv
 
 
+def decrypt_aes_message(key, iv):
+    enc_message = open('files/encMessage').read()
+    enc_message = base64.b64decode(enc_message)
+
+    # create object for aes-CBC-mode
+    cipher = AES.new(key, AES.MODE_CBC, iv)
+    # default block_size 16
+    # we need 128
+    AES.block_size = 128
+    message = unpad(cipher.decrypt(enc_message), AES.block_size)
+    return message
+
+
 def main():
     aes_key = decrypt_aes_key()
     aes_iv = decrypt_aes_iv()
+    message = decrypt_aes_message(aes_key, aes_iv)
+    # decode bytes to utf-8 (NOT ASCII)
+    message = message.decode('utf-8')
+    print(message)
 
 
 if __name__ == '__main__':
