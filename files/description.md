@@ -38,3 +38,8 @@ B/hUWZEaSthDN5JGI
 3oKXUYq1nwPzk
 -----END RSA PRIVATE KEY-----
 ```
+
+_Если ваш приватный ключ начинается с слов   
+`-----BEGIN PRIVATE KEY-----`  
+то воспользуйтесь [конвертером](https://decoder.link/rsa_converter)  
+чтобы получить `-----BEGIN RSA PRIVATE KEY-----`_  
